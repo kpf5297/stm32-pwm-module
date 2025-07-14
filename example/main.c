@@ -2,7 +2,14 @@
 #include "pwm.h"
 #include "logger.h"
 
-TIM_HandleTypeDef htim3; // Example timer handle (must be initialized in your project)
+/*
+ * Minimal example demonstrating the PWM module. The HAL initialization
+ * routines are assumed to be provided by the user project.
+ */
+
+/* Example timer handle used by the demo. Must be configured elsewhere
+ * with period and prescaler values suitable for your application. */
+TIM_HandleTypeDef htim3;
 
 int main(void) {
     HAL_Init();
@@ -11,11 +18,15 @@ int main(void) {
 
     Logger_init();
 
+    /* Report driver version via the logger */
+    Log(LOG_LEVEL_INFO, "PWM module version: %s\n", Pwm_getVersion());
+
     PwmChannel_t pwm;
     Pwm_init(&pwm, &htim3, TIM_CHANNEL_1);
 
     Pwm_start(&pwm);
 
+    /* Sweep duty cycle from 0 to 100% in 10% increments */
     while (1) {
         for (uint8_t duty = 0; duty <= 100; duty += 10) {
             Pwm_setDuty(&pwm, duty);
