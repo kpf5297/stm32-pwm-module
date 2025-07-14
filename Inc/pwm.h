@@ -19,5 +19,6 @@ void Pwm_init(PwmChannel_t* pwm, TIM_HandleTypeDef* htim, uint32_t channel);
 void Pwm_start(PwmChannel_t* pwm);
 void Pwm_stop(PwmChannel_t* pwm);
 void Pwm_setDuty(PwmChannel_t* pwm, uint8_t duty_percent);
+const char* Pwm_getVersion(void);
 
 #endif // PWM_H
