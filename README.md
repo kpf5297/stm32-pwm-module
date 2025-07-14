@@ -23,3 +23,16 @@ PwmChannel_t pwm;
 Pwm_init(&pwm, &htim3, TIM_CHANNEL_1);
 Pwm_start(&pwm);
 Pwm_setDuty(&pwm, 50); // 50% duty cycle
+```
+
+## Building
+
+A simple `Makefile` is provided to compile the example alongside the module
+sources. Run:
+
+```sh
+make
+```
+
+The resulting binary will be created in the `build/` directory. Use `make clean`
+to remove the generated object files and executable.
