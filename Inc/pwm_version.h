@@ -1,0 +1,10 @@
+#ifndef PWM_VERSION_H
+#define PWM_VERSION_H
+
+#define PWM_VERSION_MAJOR 1
+#define PWM_VERSION_MINOR 0
+#define PWM_VERSION_PATCH 0
+
+#define PWM_VERSION_STRING "1.0.0"
+
+#endif // PWM_VERSION_H
