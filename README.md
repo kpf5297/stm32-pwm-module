@@ -24,9 +24,3 @@ Pwm_init(&pwm, &htim3, TIM_CHANNEL_1);
 Pwm_start(&pwm);
 Pwm_setDuty(&pwm, 50); // 50% duty cycle
 ```
-
-Include `pwm_version.h` to access version macros. The current version string can
-be obtained with:
-```c
-const char *ver = Pwm_getVersion();
-```
