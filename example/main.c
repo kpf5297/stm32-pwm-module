@@ -1,6 +1,5 @@
 #include "stm32f4xx_hal.h"
 #include "pwm.h"
-#include "logger.h"
 
 /*
  * Minimal example demonstrating the PWM module. The HAL initialization
@@ -16,10 +15,9 @@ int main(void) {
     SystemClock_Config(); // Provided elsewhere in your project
     MX_TIM3_Init();       // Provided elsewhere in your project
 
-    Logger_init();
-
-    /* Report driver version via the logger */
-    Log(LOG_LEVEL_INFO, "PWM module version: %s\n", Pwm_getVersion());
+    /* Optionally query driver version */
+    const char* version = Pwm_getVersion();
+    (void)version;
 
     PwmChannel_t pwm;
     Pwm_init(&pwm, &htim3, TIM_CHANNEL_1);

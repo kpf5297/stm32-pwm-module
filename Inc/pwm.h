@@ -3,7 +3,6 @@
 
 #include "stm32f4xx_hal.h"
 #include <stdint.h>
-#include "logger.h"
 
 /* Module version definitions. These are maintained alongside the
  * implementation so applications do not need to include a separate

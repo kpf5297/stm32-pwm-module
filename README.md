@@ -7,7 +7,6 @@ A lightweight, reusable STM32 HAL-based PWM control module written in C.
 - Configurable timer, channel, duty cycle
 - Simple API: `init()`, `start()`, `stop()`, `setDuty()`
 - Suitable for LED dimming, motor control, etc.
-- Optional logger integration for debugging
 - Built-in version query via `Pwm_getVersion()`
 
 ## Structure
