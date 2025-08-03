@@ -15,10 +15,6 @@ int main(void) {
     SystemClock_Config(); // Provided elsewhere in your project
     MX_TIM3_Init();       // Provided elsewhere in your project
 
-    /* Optionally query driver version */
-    const char* version = Pwm_getVersion();
-    (void)version;
-
     PwmChannel_t pwm;
     Pwm_init(&pwm, &htim3, TIM_CHANNEL_1);
 
