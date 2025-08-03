@@ -3,7 +3,7 @@
 /*
  * PWM control module implementation. These routines provide a thin
  * abstraction layer over the STM32 HAL to make simple PWM output
- * configuration less error prone.
+ * configuration easier and less error-prone.
  */
 
 /*
