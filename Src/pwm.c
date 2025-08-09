@@ -15,7 +15,7 @@ void Pwm_init(PwmChannel_t* pwm, TIM_HandleTypeDef* htim, uint32_t channel) {
     pwm->htim = htim;
     pwm->channel = channel;
     pwm->period = htim->Init.Period;
-    pwm->duty_percent = 0;
+    pwm->duty_percent = 0.0f;
 
     HAL_TIM_PWM_Start(pwm->htim, pwm->channel);
 }
@@ -34,11 +34,12 @@ void Pwm_stop(PwmChannel_t* pwm) {
  * Update the pulse width to achieve the requested duty cycle. The duty
  * value is clipped to the range 0–100%.
  */
-void Pwm_setDuty(PwmChannel_t* pwm, uint8_t duty_percent) {
-    if (duty_percent > 100) duty_percent = 100;
+void Pwm_setDuty(PwmChannel_t* pwm, float duty_percent) {
+    if (duty_percent > 100.0f) duty_percent = 100.0f;
+    else if (duty_percent < 0.0f) duty_percent = 0.0f;
     pwm->duty_percent = duty_percent;
 
-    uint32_t pulse = (pwm->period * duty_percent) / 100;
+    uint32_t pulse = (uint32_t)((pwm->period * duty_percent) / 100.0f);
     __HAL_TIM_SET_COMPARE(pwm->htim, pwm->channel, pulse);
 }
 
