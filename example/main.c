@@ -22,7 +22,7 @@ int main(void) {
 
     /* Sweep duty cycle from 0 to 100% in 10% increments */
     while (1) {
-        for (uint8_t duty = 0; duty <= 100; duty += 10) {
+        for (float duty = 0.0f; duty <= 100.0f; duty += 10.0f) {
             Pwm_setDuty(&pwm, duty);
             HAL_Delay(500);
         }

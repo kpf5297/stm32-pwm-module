@@ -8,6 +8,7 @@ A lightweight, reusable STM32 HAL-based PWM control module written in C.
 - Simple API: `init()`, `start()`, `stop()`, `setDuty()`
 - Suitable for LED dimming, motor control, etc.
 - Built-in version query via `Pwm_getVersion()`
+- Float-based duty cycle for precise control
 
 ## Structure
 - `pwm.h`: Module interface
@@ -22,5 +23,5 @@ Example:
 PwmChannel_t pwm;
 Pwm_init(&pwm, &htim3, TIM_CHANNEL_1);
 Pwm_start(&pwm);
-Pwm_setDuty(&pwm, 50); // 50% duty cycle
+Pwm_setDuty(&pwm, 50.0f); // 50% duty cycle
 ```
